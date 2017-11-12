@@ -1,7 +1,7 @@
 import java.net.*; 
 import java.io.*; 
 
-public class EchoServer2 extends Thread
+public class Player1 extends Thread
 { 
  private Socket clientSocket;
 
@@ -23,9 +23,9 @@ public class EchoServer2 extends Thread
     
   // /*  // check by printing board
     
-    for ( int x = 0; x<9;x++){
+    for ( int x = 0; x<10;x++){
         String line = "";
-        for ( int y = 0; y <9;y++){
+        for ( int y = 0; y <10;y++){
             line+="["+board1[x][y]+"]";
         }
         System.out.println(line);
@@ -60,7 +60,7 @@ public class EchoServer2 extends Thread
               while (true)
                  {
                   System.out.println ("Waiting for Connection");
-                  new EchoServer2 (serverSocket.accept()); 
+                  new Player1 (serverSocket.accept()); 
     
                   
                  }
@@ -97,7 +97,7 @@ public class EchoServer2 extends Thread
     
    }
 
- private EchoServer2 (Socket clientSoc)
+ private Player1 (Socket clientSoc)
    {
     clientSocket = clientSoc;
     System.out.println ("Socket open on Port: " +
@@ -152,7 +152,8 @@ public class EchoServer2 extends Thread
 }
 
 
-// back-end stuff for server, create grid using 2d array
+// back-end stuff to figure out: send ship positions, send target location -> hit / miss 
+// convert to string, send via socket, receiver parses then retrieves data
 
 	    
 

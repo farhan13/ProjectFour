@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class EchoClient2 {
+public class Player2 {
     public static void main(String[] args) throws IOException {
 
         Socket echoSocket = null;
