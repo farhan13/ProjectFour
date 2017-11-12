@@ -7,10 +7,49 @@ public class EchoServer2 extends Thread
 
  public static void main(String[] args) throws IOException 
    { 
+	
     ServerSocket serverSocket = null; 
+    
+    // back-end stuff for server, create grid using 2d array
+    
+    int [][] board1 = new int[10][10];
+    
+    for (int x = 0; x<board1.length;x++){
+   	   for (int y = 0; y<board1.length;y++){
+   	      board1[x][y] = 0;  // Initialize the cell
+   	   }
+   	}
+    //System.out.println("abcdef");
+    
+  // /*  // check by printing board
+    
+    for ( int x = 0; x<9;x++){
+        String line = "";
+        for ( int y = 0; y <9;y++){
+            line+="["+board1[x][y]+"]";
+        }
+        System.out.println(line);
+    }
+    
+     
+   //  */
+   
+    // BOARD LOGIC
+    
+    /*	0 MEANS no ship, just water
+     *  1 means Server ship/ player 1 ship position
+     *  2 means Player 2 ship/ client ship position
+     *  3 means player 1 hit position
+     *  4 means player 2 hit position
+     *  5 = player 1 miss positon
+     *  6 = player 2 miss position
+     * 	7 = player 1 ship + hit position
+     *  8 = player 2 ship + hit position
+     * 
+     */
 
     try { 
-         serverSocket = new ServerSocket(10008); 
+         serverSocket = new ServerSocket(8080); 
          System.out.println ("Connection Socket Created");
          System.out.println ("Socket open on Port: " +
                              serverSocket.getLocalPort());
@@ -22,6 +61,8 @@ public class EchoServer2 extends Thread
                  {
                   System.out.println ("Waiting for Connection");
                   new EchoServer2 (serverSocket.accept()); 
+    
+                  
                  }
              } 
          catch (IOException e) 
@@ -32,7 +73,7 @@ public class EchoServer2 extends Thread
         } 
     catch (IOException e) 
         { 
-         System.err.println("MSg 1: Could not listen on port: 10008."); 
+         System.err.println("MSg 1: Could not listen on port: 12018."); 
          System.exit(1); 
         } 
     finally
@@ -42,10 +83,18 @@ public class EchoServer2 extends Thread
              }
          catch (Exception e)
              { 
-              System.err.println("MSG 2: Could not close port: 10008."); 
+              System.err.println("MSG 2: Could not close port: 12018."); 
               System.exit(1); 
              } 
         }
+
+    
+
+	    
+
+    
+    
+    
    }
 
  private EchoServer2 (Socket clientSoc)
@@ -72,13 +121,17 @@ public class EchoServer2 extends Thread
 
          while ((inputLine = in.readLine()) != null) 
              { 
-              System.out.println ("Server: " + inputLine); 
+              System.out.println ("client: " + inputLine); 
               out.println(inputLine.toUpperCase()); 
 
-              if (inputLine.equals("Bye.")) 
+              if (inputLine.equals("Bye.")) {
                   break; 
              } 
-
+         
+         	if ( inputLine.equals("hi")){
+         		System.out.println ("hello from Server");
+         	}
+   }
          out.close(); 
          in.close(); 
          clientSocket.close(); 
@@ -89,4 +142,20 @@ public class EchoServer2 extends Thread
          System.exit(1); 
         } 
     }
-} 
+ 
+ void sendBoard1 () {		// send the positions of the ships for player1
+	 
+	 
+	 
+ }
+
+}
+
+
+// back-end stuff for server, create grid using 2d array
+
+	    
+
+	    
+
+
