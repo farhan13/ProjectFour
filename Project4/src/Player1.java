@@ -41,7 +41,7 @@ public class Player1 extends Thread
      *  2 means Player 2 ship/ client ship position
      *  3 means player 1 hit position
      *  4 means player 2 hit position
-     *  5 = player 1 miss positon
+     *  5 = player 1 miss position
      *  6 = player 2 miss position
      * 	7 = player 1 ship + hit position
      *  8 = player 2 ship + hit position
@@ -50,8 +50,8 @@ public class Player1 extends Thread
 
     try { 
          serverSocket = new ServerSocket(8080); 
-         System.out.println ("Connection Socket Created");
-         System.out.println ("Socket open on Port: " +
+       //  System.out.println ("Connection Socket Created");		// not necessary
+         System.out.println ("New Socket open on Port: " +
                              serverSocket.getLocalPort());
          InetAddress addr = InetAddress.getLocalHost();
          System.out.println("Java InetAddress localHost info: " + addr);
@@ -59,7 +59,7 @@ public class Player1 extends Thread
          try { 
               while (true)
                  {
-                  System.out.println ("Waiting for Connection");
+                  System.out.println ("Waiting for Player2...");
                   new Player1 (serverSocket.accept()); 
     
                   
@@ -73,7 +73,7 @@ public class Player1 extends Thread
         } 
     catch (IOException e) 
         { 
-         System.err.println("MSg 1: Could not listen on port: 12018."); 
+         System.err.println("MSg 1: Could not listen on port: 8080."); 
          System.exit(1); 
         } 
     finally
@@ -83,7 +83,7 @@ public class Player1 extends Thread
              }
          catch (Exception e)
              { 
-              System.err.println("MSG 2: Could not close port: 12018."); 
+              System.err.println("MSG 2: Could not close port: 8080."); 
               System.exit(1); 
              } 
         }
@@ -109,7 +109,7 @@ public class Player1 extends Thread
 
  public void run()
    {
-    System.out.println ("New Communication Thread Started");
+    System.out.println ("Players connected. Begin BattleShip!");
 
     try { 
          PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), 
@@ -118,18 +118,18 @@ public class Player1 extends Thread
                  new InputStreamReader( clientSocket.getInputStream())); 
 
          String inputLine; 
-
+         int num = 1;
          while ((inputLine = in.readLine()) != null) 
              { 
               System.out.println ("client: " + inputLine); 
               out.println(inputLine.toUpperCase()); 
 
-              if (inputLine.equals("Bye.")) {
+              if (inputLine.equals("Bye.")) {			// not necessary
                   break; 
              } 
          
-         	if ( inputLine.equals("hi")){
-         		System.out.println ("hello from Server");
+         	if ( inputLine.equals(num)){
+         		System.out.println (num + 1);		// testing
          	}
    }
          out.close(); 
@@ -143,7 +143,13 @@ public class Player1 extends Thread
         } 
     }
  
- void sendBoard1 () {		// send the positions of the ships for player1
+ void sendShipPos () {		// send the positions of the ships for player1
+	 
+	 
+	 
+ }
+ 
+ void sendFirePos () {		// send torpedo target location for player1
 	 
 	 
 	 

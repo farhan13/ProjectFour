@@ -28,7 +28,7 @@ public class Player2 {
             System.exit(1);
         } catch (IOException e) {
             System.err.println("Couldn't get I/O for "
-                               + "the connection to: taranis.");
+                               + "the connection to: BattleShip");
             System.exit(1);
         }
 
@@ -37,7 +37,7 @@ public class Player2 {
 	
 	String userInput;
 
-        System.out.println ("Type Message (\"Bye.\" to quit)");
+        System.out.println ("Player 2 connected, Type Message (\"Bye.\" to quit)");		// not necessary
 	while ((userInput = stdIn.readLine()) != null) 
            {
 	    out.println(userInput);
@@ -46,7 +46,7 @@ public class Player2 {
             if (userInput.equals("Bye."))
                 break;
 
-	    System.out.println("echo: " + in.readLine());
+	    System.out.println("Player2: " + in.readLine());			// not necessary
 	   }
 	
 	out.close();
