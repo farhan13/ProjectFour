@@ -122,7 +122,7 @@ public class Player1 extends Thread
          while ((inputLine = in.readLine()) != null) 
              { 
               System.out.println ("client: " + inputLine); 
-              //out.println(inputLine.toUpperCase()); 
+              out.println(inputLine.toUpperCase()); 
               out.println("[1,0]");
               if (inputLine.equals("Bye.")) {			// not necessary
                   break; 
