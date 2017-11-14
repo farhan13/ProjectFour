@@ -37,7 +37,11 @@ public class Player1 extends Thread
     // BOARD LOGIC
     
     /*	0 MEANS no ship, just water
-     *  1 means Server ship/ player 1 ship position
+     *  10 means Server ship/ player 1 ship 1 position
+     *  20 means Server ship/ player 1 ship 2 position
+     *  30 means Server ship/ player 1 ship 3 position 
+     *  40 means Server ship/ player 1 ship 4 position 
+     *  50 means Server ship/ player 1 ship 5 position 
      *  2 means Player 2 ship/ client ship position
      *  3 means player 1 hit position
      *  4 means player 2 hit position

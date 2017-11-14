@@ -16,6 +16,8 @@ public class Player2 {
        	   }
        	}
         
+        String Player2Ship1 = "5,5";
+        
         
         try {
             // echoSocket = new Socket("taranis", 7);
@@ -37,7 +39,7 @@ public class Player2 {
 	
 	String userInput;
 
-        System.out.println ("Player 2 connected, Type Message (\"Bye.\" to quit)");		// not necessary
+        System.out.println ("Player 2 connected, enter any key to start Battleship");		// not necessary
 	while ((userInput = stdIn.readLine()) != null) 
            {
 	    out.println(userInput);
