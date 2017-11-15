@@ -1,4 +1,5 @@
-import java.net.*; 
+import java.net.*;
+import java.util.ArrayList;
 import java.io.*; 
 
 public class Player1 extends Thread
@@ -114,6 +115,8 @@ public class Player1 extends Thread
  public void run()
    {
     System.out.println ("Players connected. Begin BattleShip!");
+    
+    ArrayList ship_coordinates = new ArrayList<String_Coordinates>();
 
     try { 
          PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), 

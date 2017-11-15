@@ -41,7 +41,7 @@ public class Player2 {
                                    new InputStreamReader(System.in));
 	String userInput;
 	String ships;
-	ArrayList<Coordinates> ship_coordinates = new ArrayList<Coordinates>;
+	ArrayList<Coordinates> ship_coordinates = new ArrayList<Coordinates>();
 	
     for (int a = 0; a<board1.length;a++){
     	   for (int b = 0; b<board1.length;a++){
@@ -55,6 +55,15 @@ public class Player2 {
     		   }     
     	   }
     	}
+    
+    ArrayList ship_coordinates_s = new ArrayList<String_Coordinates>();
+    
+    
+    for (int i = 0; i<ship_coordinates.size(); i++){
+    	
+    	String_Coordinates string_coordinates = new String_Coordinates(Integer.toString(ship_coordinates.get(i).getX()), Integer.toString(ship_coordinates.get(i).getY()));
+    	
+    }
 	
 
         System.out.println ("Player 2 connected, enter any key to start Battleship");		// not necessary
@@ -65,6 +74,8 @@ public class Player2 {
             // end loop
             if (userInput.equals("Bye."))
                 break;
+            
+            
 
 	    System.out.println("Player2: " + in.readLine());			// not necessary
 	   }
