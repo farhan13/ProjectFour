@@ -32,6 +32,9 @@ public class Player1 extends Thread
         System.out.println(line);
     }
     
+    
+    ArrayList ship_coordinates = new ArrayList<String_Coordinates>();
+    
      
    //  */
    
@@ -116,7 +119,7 @@ public class Player1 extends Thread
    {
     System.out.println ("Players connected. Begin BattleShip!");
     
-    ArrayList ship_coordinates = new ArrayList<String_Coordinates>();
+   
 
     try { 
          PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), 
@@ -129,15 +132,17 @@ public class Player1 extends Thread
          while ((inputLine = in.readLine()) != null) 
              { 
               System.out.println ("client: " + inputLine); 
-              //out.println(inputLine.toUpperCase()); 
-              out.println("[1,0]");
+              out.println(inputLine.toUpperCase()); 
+              out.println("[1,0]");			// testing
+              
+              System.out.println(in.readLine());
+              
               if (inputLine.equals("Bye.")) {			// not necessary
                   break; 
              } 
-         
-         	if ( inputLine.equals(num)){
-         		System.out.println (num + 1);		// testing
-         	}
+              
+              System.out.println("...");
+
    }
          out.close(); 
          in.close(); 
