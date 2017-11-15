@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 
 public class Player2 {
     public static void main(String[] args) throws IOException {
@@ -17,6 +18,8 @@ public class Player2 {
        	}
         
         String Player2Ship1 = "5,5";
+        
+       // int ShipPositions = 1;
         
         
         try {
@@ -36,8 +39,23 @@ public class Player2 {
 
 	BufferedReader stdIn = new BufferedReader(
                                    new InputStreamReader(System.in));
-	
 	String userInput;
+	String ships;
+	ArrayList<Coordinates> ship_coordinates = new ArrayList<Coordinates>;
+	
+    for (int a = 0; a<board1.length;a++){
+    	   for (int b = 0; b<board1.length;a++){
+    	      
+    		   if(board1[a][b] == 1) {
+    			   
+    			   Coordinates coordinate = new Coordinates(a,b);
+    			   
+    			   ship_coordinates.add(coordinate);
+    			   
+    		   }     
+    	   }
+    	}
+	
 
         System.out.println ("Player 2 connected, enter any key to start Battleship");		// not necessary
 	while ((userInput = stdIn.readLine()) != null) 
@@ -50,6 +68,10 @@ public class Player2 {
 
 	    System.out.println("Player2: " + in.readLine());			// not necessary
 	   }
+	
+	
+	
+	
 	
 	out.close();
 	in.close();

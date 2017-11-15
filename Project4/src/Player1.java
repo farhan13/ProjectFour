@@ -48,7 +48,7 @@ public class Player1 extends Thread
      *  5 = player 1 miss position
      *  6 = player 2 miss position
      * 	7 = player 1 ship + hit position
-     *  8 = player 2 ship + hit position
+     *  8 = player 2 ship + hit position  // these 2 not useful
      * 
      */
 
