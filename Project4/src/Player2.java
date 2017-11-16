@@ -90,7 +90,7 @@ public class Player2 {
 	    out.write(ship_coordinates_s.get(0).getX());  // 1
 
             // end loop
-            if (userInput.equals("Bye.") )
+            if (userInput.equals("End") )
                 break;
             
       

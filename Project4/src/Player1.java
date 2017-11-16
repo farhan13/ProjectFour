@@ -137,7 +137,7 @@ public class Player1 extends Thread
               
               System.out.println(in.readLine());
               
-              if (inputLine.equals("Bye.")) {			// not necessary
+              if (inputLine.equals("End")) {			// not necessary
                   break; 
              } 
               
