@@ -107,6 +107,7 @@ public class Player2 {
             System.out.println("client received: " + inputLine);
             int rec = parseInt(inputLine);
             System.out.println("integer check: " + rec);
+            inputLine = null;
         }
         System.out.println("Client done reading");
 

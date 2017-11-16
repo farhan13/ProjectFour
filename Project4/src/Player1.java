@@ -139,9 +139,9 @@ public class Player1 extends Thread
 
                 System.out.println("sever received: " + inputLine);
                 int check = parseInt(inputLine);
-                System.out.println("integer check: " + check);
+               // System.out.println("integer check: " + check);
 
-
+                inputLine = null;
 
                 //if (inputLine.equals("End")) {			// not necessary
                 //    break;
