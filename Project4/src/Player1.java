@@ -143,8 +143,8 @@ public class Player1 extends Thread
 //                x = Integer.toString(in.read());
                 System.out.println("sever received: " + inputLine);
 
-                int fsrhsn = parseInt(inputLine);
-                System.out.println("fsrhsn: " + fsrhsn);
+                int fsrhan = parseInt(inputLine);
+                System.out.println("integer check: " + fsrhan);
 
                 //if (inputLine.equals("End")) {			// not necessary
                 //    break;
