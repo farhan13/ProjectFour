@@ -88,6 +88,8 @@ public class Player2 {
 	    out.println(userInput);
 	    
 	    out.write(ship_coordinates_s.get(0).getX());  // 1
+	    
+	    System.out.println("sending " + ship_coordinates_s.get(0).getX());
 
             // end loop
             if (userInput.equals("End") )
