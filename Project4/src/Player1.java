@@ -131,12 +131,14 @@ public class Player1 extends Thread
          int num = 1;
          while ((inputLine = in.readLine()) != null) 
              { 
+        	 
               System.out.println ("client: " + inputLine); 
-              out.println(inputLine.toUpperCase()); 
-              out.println("[1,0]");			// testing
+             // out.println(inputLine.toUpperCase()); 
+              //out.println("[1,0]");			// testing
+              
               in.read();
               System.out.println("sever received:" + in.read());
-              System.out.println(in.readLine());
+            //  System.out.println(in.readLine());
               
               if (inputLine.equals("End")) {			// not necessary
                   break; 
