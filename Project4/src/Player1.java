@@ -35,7 +35,7 @@ public class Player1 extends Thread
         }
 
 
-        ArrayList ship_coordinates = new ArrayList<String_Coordinates>();
+        ArrayList ship_coordinates = new ArrayList<String_Coordinates>();			// not used
 
 
         //  */
@@ -124,8 +124,9 @@ public class Player1 extends Thread
                     true);
             BufferedReader in = new BufferedReader(
                     new InputStreamReader( clientSocket.getInputStream()));
-
+            	System.out.println("hii"); 
             String inputLine = in.readLine();
+            
             System.out.println ("Srart reading");
             while (inputLine != null)
             {
@@ -149,7 +150,7 @@ public class Player1 extends Thread
             }
             System.out.println("server done reading");
             String check = "1";
-            out.write(check + "\n");
+            out.println(check + "\n");
 
             out.close();
             in.close();
@@ -161,19 +162,6 @@ public class Player1 extends Thread
             System.exit(1);
         }
     }
-
-    void sendShipPos () {		// send the positions of the ships for player1
-
-
-
-    }
-
-    void sendFirePos () {		// send torpedo target location for player1
-
-
-
-    }
-
 }
 
 

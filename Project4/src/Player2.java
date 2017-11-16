@@ -79,17 +79,17 @@ public class Player2 {
 
         BufferedReader stdIn = new BufferedReader(
                 new InputStreamReader(System.in));
-        String userInput;
+        String userInput = "23";
         String ships;
 
 
 
-        System.out.println ("Player 2 connected, enter any key to start Battleship");		// not necessary
+  //      System.out.println ("Player 2 connected, enter any key to start Battleship");		// not necessary
         //while ((userInput = stdIn.readLine()) != null)
 
             //out.println(userInput);
 
-            out.write(ship_coordinates_s.get(0).getX() + "\n");  // 1
+            out.println(ship_coordinates_s.get(0).getX() + "\n");  // 1
 //            out.write(ship_coordinates_s.get(0).getY());
 
             System.out.println("sending TO SERVER: " + ship_coordinates_s.get(0).getX() +" " + ship_coordinates_s.get(0).getY());		//testing
