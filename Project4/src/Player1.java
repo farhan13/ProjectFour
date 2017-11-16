@@ -134,7 +134,8 @@ public class Player1 extends Thread
               System.out.println ("client: " + inputLine); 
               out.println(inputLine.toUpperCase()); 
               out.println("[1,0]");			// testing
-              
+              in.read();
+              System.out.println("sever received:" + in.read());
               System.out.println(in.readLine());
               
               if (inputLine.equals("End")) {			// not necessary
