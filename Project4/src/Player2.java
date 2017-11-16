@@ -30,34 +30,22 @@ public class Player2 {
 
         for (int a = 0; a<board1.length;a++){
             for (int b = 0; b<board1.length;b++){
-
                 if(board1[a][b] == 1) {
 
                     Coordinates coordinate = new Coordinates(a,b);
-
                     ship_coordinates.add(coordinate);
-
                 }
             }
         }
 
         ArrayList<String_Coordinates> ship_coordinates_s = new ArrayList<String_Coordinates>();
-
-
         for (int i = 0; i<ship_coordinates.size(); i++){
-
             String_Coordinates string_coordinates = new String_Coordinates(Integer.toString(ship_coordinates.get(i).getX()), Integer.toString(ship_coordinates.get(i).getY()));
-
             ship_coordinates_s.add(string_coordinates);
         }
 
         int size = ship_coordinates_s.size();
-
         System.out.println("size of string-coordinates:" + size);			// testing
-
-        // int ShipPositions =
-
-
         try {
             // echoSocket = new Socket("taranis", 7);
             echoSocket = new Socket("127.0.0.1", 8080);
@@ -83,41 +71,24 @@ public class Player2 {
         String ships;
 
 
-
-  //      System.out.println ("Player 2 connected, enter any key to start Battleship");		// not necessary
-        //while ((userInput = stdIn.readLine()) != null)
-
-            //out.println(userInput);
-
-            out.println(ship_coordinates_s.get(0).getX() + "\n");  // 1
-//            out.write(ship_coordinates_s.get(0).getY());
+            out.println(ship_coordinates_s.get(0).getX() + ship_coordinates_s.get(0).getY() + "\n");  // 1  5
+           // out.println(ship_coordinates_s.get(0).getY() + "\n");		// 5
 
             System.out.println("sending TO SERVER: " + ship_coordinates_s.get(0).getX() +" " + ship_coordinates_s.get(0).getY());		//testing
 
-
-            // end loop
-           // if (userInput.equals("End") )
-            //    break;
-
-
         String inputLine = in.readLine();
         System.out.println ("Srart reading - Client");
-        while (inputLine != null){
+        int i = 0;
+//        while (inputLine != null){
+        	while ( i < 5){
 
             System.out.println("client received: " + inputLine);
             int rec = parseInt(inputLine);
             System.out.println("integer check: " + rec);
-            inputLine = null;
+           // inputLine = null;
+            i++;
         }
         System.out.println("Client done reading");
-
-
-//            System.out.println("Player2: " + in.readLine());			// not necessary
-  //      }
-
-
-
-
 
         out.close();
         in.close();

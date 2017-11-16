@@ -26,13 +26,13 @@ public class Player1 extends Thread
 
         // /*  // check by printing board
 
-        for ( int x = 0; x<10;x++){
-            String line = "";
-            for ( int y = 0; y <10;y++){
-                line+="["+board1[x][y]+"]";
-            }
-            System.out.println(line);
-        }
+//        for ( int x = 0; x<10;x++){
+//            String line = "";
+//            for ( int y = 0; y <10;y++){
+//                line+="["+board1[x][y]+"]";
+//            }
+//            System.out.println(line);
+//        }
 
 
         ArrayList ship_coordinates = new ArrayList<String_Coordinates>();			// not used
@@ -128,25 +128,15 @@ public class Player1 extends Thread
             String inputLine = in.readLine();
             
             System.out.println ("Srart reading");
-            while (inputLine != null)
+            int i = 0;
+//            while (inputLine != null)
+            while (i < 5)
             {
-
-               // System.out.println ("client: " + inputLine);
-                // out.println(inputLine.toUpperCase());
-                //out.println("[1,0]");			// testing
-//                x = Integer.toString(in.read());
-
-
                 System.out.println("sever received: " + inputLine);
                 int check = parseInt(inputLine);
-               // System.out.println("integer check: " + check);
-
-                inputLine = null;
-
-                //if (inputLine.equals("End")) {			// not necessary
-                //    break;
-                //}
-
+       
+              //  inputLine = null;
+                i++;
             }
             System.out.println("server done reading");
             String check = "1";
