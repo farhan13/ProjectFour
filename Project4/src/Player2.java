@@ -2,6 +2,8 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 
+import static java.lang.Integer.parseInt;
+
 public class Player2 {
     public static void main(String[] args) throws IOException {
 
@@ -84,9 +86,7 @@ public class Player2 {
 
         System.out.println ("Player 2 connected, enter any key to start Battleship");		// not necessary
         //while ((userInput = stdIn.readLine()) != null)
-       int v = 0;
-//        while(v < 20)
-//        {
+
             //out.println(userInput);
 
             out.write(ship_coordinates_s.get(0).getX() + "\n");  // 1
@@ -100,6 +100,15 @@ public class Player2 {
             //    break;
 
 
+        String inputLine = in.readLine();
+        System.out.println ("Srart reading - Client");
+        while (inputLine != null){
+
+            System.out.println("client received: " + inputLine);
+            int rec = parseInt(inputLine);
+            System.out.println("integer check: " + rec);
+        }
+        System.out.println("Client done reading");
 
 
 //            System.out.println("Player2: " + in.readLine());			// not necessary

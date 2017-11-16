@@ -71,8 +71,6 @@ public class Player1 extends Thread
                 {
                     System.out.println ("Waiting for Player2...");
                     new Player1 (serverSocket.accept());
-
-
                 }
             }
             catch (IOException e)
@@ -127,33 +125,32 @@ public class Player1 extends Thread
             BufferedReader in = new BufferedReader(
                     new InputStreamReader( clientSocket.getInputStream()));
 
-            String inputLine;
-            int num = 1;
-            int x;
-            int i = 0;
-
-            while ((inputLine = in.readLine()) != null)
-//            while(i<20)
+            String inputLine = in.readLine();
+            System.out.println ("Srart reading");
+            while (inputLine != null)
             {
 
                // System.out.println ("client: " + inputLine);
                 // out.println(inputLine.toUpperCase());
                 //out.println("[1,0]");			// testing
-                System.out.println ("Srart reading");
 //                x = Integer.toString(in.read());
-                System.out.println("sever received: " + inputLine);
 
-                int fsrhan = parseInt(inputLine);
-                System.out.println("integer check: " + fsrhan);
+
+                System.out.println("sever received: " + inputLine);
+                int check = parseInt(inputLine);
+                System.out.println("integer check: " + check);
+
+
 
                 //if (inputLine.equals("End")) {			// not necessary
                 //    break;
                 //}
 
-                System.out.println("...");
-                i++;
-
             }
+            System.out.println("server done reading");
+            String check = "1";
+            out.write(check + "\n");
+
             out.close();
             in.close();
             clientSocket.close();
