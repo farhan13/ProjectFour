@@ -143,9 +143,9 @@ public class Player1 extends Thread
             {
                 System.out.println("sever received: " + inputLine);
                 int check = parseInt(inputLine);
-//                x = game.x;
-//                y = game.y;
-//                System.out.println("what i got" + x + ", " + y);
+                x = game.x;
+                y = game.y;
+                System.out.println("what i got" + x + ", " + y);
                 //  inputLine = null;
                 i++;
             }
