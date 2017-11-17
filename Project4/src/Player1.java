@@ -1,13 +1,18 @@
 import java.net.*;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
+
 import java.io.*;
 
 import static java.lang.Integer.parseInt;
 
+import java.awt.event.ActionEvent;
+
 public class Player1 extends Thread
 {
     private Socket clientSocket;
-
+    int x,y;
     public static void main(String[] args) throws IOException
     {
 
@@ -127,13 +132,20 @@ public class Player1 extends Thread
             String inputLine = in.readLine();
 
             System.out.println ("Srart reading");
+            ActionEvent e = null;
+//            actionPerformed(e, game);
+//            x = game.x;
+//            y = game.y;
+//            System.out.println("what i got" + x + ", " + y);
             int i = 0;
 //            while (inputLine != null)
             while (i < 5)
             {
                 System.out.println("sever received: " + inputLine);
                 int check = parseInt(inputLine);
-
+                x = game.x;
+                y = game.y;
+                System.out.println("what i got" + x + ", " + y);
                 //  inputLine = null;
                 i++;
             }
@@ -151,6 +163,21 @@ public class Player1 extends Thread
             System.exit(1);
         }
     }
+    
+//		public void actionPerformed(ActionEvent e, battleshipSERVER game) {
+//			JButton temp = (JButton) e.getSource();
+//			for(int i = 1; i < 11; i++) {
+//				for(int j = 11; j < 21; j++) {
+//					if(temp.equals(game.buttons[i][j]))
+//						game.buttons[i][j].setText("Butts!");
+//					
+//				}
+//			}
+//		}
+    
+    
+    
+    
 }
 
 

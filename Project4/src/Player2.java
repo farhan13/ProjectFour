@@ -8,7 +8,7 @@ public class Player2 {
 
     public static void main(String[] args) throws IOException
     {
-
+    	int x1,y1;
         Socket echoSocket = null;
         PrintWriter out = null;
         BufferedReader in = null;
@@ -72,7 +72,10 @@ public class Player2 {
         // out.println(ship_coordinates_s.get(0).getY() + "\n");		// 5
 
 //        System.out.println("sending TO SERVER: " + ship_coordinates_s.get(0).getX() +" " + ship_coordinates_s.get(0).getY());		//testing
-
+        x1 = game.x;
+        y1 = game.y;
+        String z = Integer.toString(x1);
+        out.println(z);
         String inputLine = in.readLine();
         System.out.println ("Srart reading - Client");
         int i = 0;

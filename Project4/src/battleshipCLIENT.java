@@ -21,6 +21,7 @@ public class battleshipCLIENT extends JFrame implements ActionListener {
 	JButton LnumLine[], RnumLine[];
 	Container grid;
 	JPanel field, leftLine, rightLine;
+	int x,y;
 	
 	public battleshipCLIENT() {
 		
@@ -118,7 +119,10 @@ public class battleshipCLIENT extends JFrame implements ActionListener {
 								for(int i = 1; i < 11; i++) {
 									for(int j = 11; j < 21; j++) {
 										if(temp.equals(buttons[i][j]))
-											buttons[i][j].setText("Butts!");
+										{
+											x = i;
+											y = j;
+										}
 									}
 								}
 							}

@@ -17,11 +17,11 @@ import javax.swing.border.*;
 
 
 public class battleshipSERVER extends JFrame implements ActionListener {
-	JButton buttons[][];
+	public JButton buttons[][];
 	JButton LnumLine[], RnumLine[];
 	Container grid;
 	JPanel field, leftLine, rightLine;
-	
+	int x,y;
 	public battleshipSERVER() {
 		
 		super ( "Battleship, The Game (Server)" );
@@ -117,8 +117,11 @@ public class battleshipSERVER extends JFrame implements ActionListener {
 								JButton temp = (JButton) e.getSource();
 								for(int i = 1; i < 11; i++) {
 									for(int j = 11; j < 21; j++) {
-										if(temp.equals(buttons[i][j]))
-											buttons[i][j].setText("Butts!");
+										if(temp.equals(buttons[i][j])){
+											x = i;
+											y = j;
+										}
+										
 									}
 								}
 							}
@@ -363,6 +366,17 @@ public class battleshipSERVER extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		
+	}
+	public int setX(int i){
+		return i;
+	}
+	public int setY(int j){
+		return j;
+	}
+	
+	public void change_buttons()
+	{
+		buttons[0][0].setText("21");
 	}
 }
 
