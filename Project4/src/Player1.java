@@ -28,7 +28,7 @@ public class Player1 extends Thread
 
 //        for ( int x = 0; x<10;x++){
 //            String line = "";
-//            for ( int y = 0; y <10;y++){
+//            for //( int y = 0; y <10;y++){
 //                line+="["+board1[x][y]+"]";
 //            }
 //            System.out.println(line);
@@ -96,13 +96,6 @@ public class Player1 extends Thread
             }
         }
 
-
-
-
-
-
-
-
     }
 
     private Player1 (Socket clientSoc)
@@ -119,14 +112,20 @@ public class Player1 extends Thread
     {
         System.out.println ("Players connected. Begin BattleShip!");
 
-        try {
+        try
+        {
+            System.out.println("GUI init");
+
+            battleshipSERVER game = new battleshipSERVER();
+
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(),
                     true);
             BufferedReader in = new BufferedReader(
                     new InputStreamReader( clientSocket.getInputStream()));
-            	System.out.println("hii"); 
+
+            System.out.println("hii");
             String inputLine = in.readLine();
-            
+
             System.out.println ("Srart reading");
             int i = 0;
 //            while (inputLine != null)
@@ -134,8 +133,8 @@ public class Player1 extends Thread
             {
                 System.out.println("sever received: " + inputLine);
                 int check = parseInt(inputLine);
-       
-              //  inputLine = null;
+
+                //  inputLine = null;
                 i++;
             }
             System.out.println("server done reading");

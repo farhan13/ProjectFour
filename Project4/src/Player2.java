@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import static java.lang.Integer.parseInt;
 
 public class Player2 {
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args) throws IOException
+    {
 
         Socket echoSocket = null;
         PrintWriter out = null;
@@ -18,13 +20,6 @@ public class Player2 {
                 board1[x][y] = 0;  // Initialize the cell
             }
         }
-
-        board1[1][5] = 1;
-        board1[1][6] = 1;
-        board1[1][7] = 1;
-
-        String Player2Ship1 = "5,5";
-
 
         ArrayList<Coordinates> ship_coordinates = new ArrayList<Coordinates>();
 
@@ -71,21 +66,23 @@ public class Player2 {
         String ships;
 
 
-            out.println(ship_coordinates_s.get(0).getX() + ship_coordinates_s.get(0).getY() + "\n");  // 1  5
-           // out.println(ship_coordinates_s.get(0).getY() + "\n");		// 5
+        battleshipCLIENT game = new battleshipCLIENT();
 
-            System.out.println("sending TO SERVER: " + ship_coordinates_s.get(0).getX() +" " + ship_coordinates_s.get(0).getY());		//testing
+//        out.println(ship_coordinates_s.get(0).getX() + ship_coordinates_s.get(0).getY() + "\n");  // 1  5
+        // out.println(ship_coordinates_s.get(0).getY() + "\n");		// 5
+
+//        System.out.println("sending TO SERVER: " + ship_coordinates_s.get(0).getX() +" " + ship_coordinates_s.get(0).getY());		//testing
 
         String inputLine = in.readLine();
         System.out.println ("Srart reading - Client");
         int i = 0;
 //        while (inputLine != null){
-        	while ( i < 5){
+        while ( i < 5){
 
             System.out.println("client received: " + inputLine);
             int rec = parseInt(inputLine);
             System.out.println("integer check: " + rec);
-           // inputLine = null;
+            // inputLine = null;
             i++;
         }
         System.out.println("Client done reading");
