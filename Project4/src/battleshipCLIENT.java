@@ -15,17 +15,16 @@ import java.io.IOException;
 import javax.swing.*;
 import javax.swing.border.*;
 
-
-public class battleshipCLIENT extends JFrame implements ActionListener {
+//
+public class battleshipCLIENT extends JFrame {
 	JButton buttons[][];
 	JButton LnumLine[], RnumLine[];
 	Container grid;
 	JPanel field, leftLine, rightLine;
-	int x,y;
 	
 	public battleshipCLIENT() {
 		
-		super ( "Battleship, The Game (Server)" );
+		super ( "Battleship, The Game (Client)" );
 		grid = getContentPane();
 		grid.setLayout(new BorderLayout());
 		
@@ -41,7 +40,7 @@ public class battleshipCLIENT extends JFrame implements ActionListener {
 		
 		for(int i = 0; i < 11; i++) {
 			for(int j = 0; j < 21; j++) {	
-				JButton display = new JButton("" + i + "," + j);
+				JButton display = new JButton("");
 				display.setBackground(Color.BLUE);
 				field.add(display);
 				
@@ -118,10 +117,8 @@ public class battleshipCLIENT extends JFrame implements ActionListener {
 								JButton temp = (JButton) e.getSource();
 								for(int i = 1; i < 11; i++) {
 									for(int j = 11; j < 21; j++) {
-										if(temp.equals(buttons[i][j]))
-										{
-											x = i;
-											y = j;
+										if(temp.equals(buttons[i][j])) {
+											buttons[i][j].setBackground(Color.RED);
 										}
 									}
 								}
@@ -138,8 +135,8 @@ public class battleshipCLIENT extends JFrame implements ActionListener {
 		JMenu Menu = new JMenu( "Menu" );
 		Menu.setMnemonic( 'M' );
 
-		JMenuItem connectItem = new JMenuItem( "Connect!" );
-		connectItem.setMnemonic( 'C' );
+		JMenuItem connectItem = new JMenuItem( "New game" );
+		connectItem.setMnemonic( 'N' );
 		Menu.add( connectItem );
 		connectItem.addActionListener(
 				new ActionListener() {
@@ -147,10 +144,10 @@ public class battleshipCLIENT extends JFrame implements ActionListener {
 					{
 						//CODE GOES HERE
 						
-						JOptionPane.showMessageDialog(
-								battleshipCLIENT.this,
-								"Establishing Connection...",
-								"Connection", JOptionPane.PLAIN_MESSAGE );
+//						JOptionPane.showMessageDialog(
+//								battleshipCLIENT.this,
+//								"Establishing Connection...",
+//								"Connection", JOptionPane.PLAIN_MESSAGE );
 						
 						String ship11 = JOptionPane.showInputDialog("Enter in X coordinate (1-10) for Aircraft Carrier's head : \nNOTE: ship is 5 units long");
 						String ship12 = JOptionPane.showInputDialog("Enter in Y coordinate (A-J) for Aircraft Carrier's head : \nNOTE: ship is 5 units long");
@@ -211,21 +208,7 @@ public class battleshipCLIENT extends JFrame implements ActionListener {
 						int ship5d = String2Int(ship54);
 						
 						shipPlacement(ship5a, ship5b, ship5c, ship5d);
-//						JOptionPane.showMessageDialog(
-//								battleshipCLIENT.this,
-//								"ship's X = " + ship1a + "\nship's Y = " + ship1b,
-//								"Wieners", JOptionPane.PLAIN_MESSAGE );
-//						int ship21
-//						int ship22
-//						
-//						int ship31
-//						int ship32
-//						
-//						int ship41
-//						int ship42
-//						
-//						int ship51
-//						int ship52
+
 					}
 				}
 		);
@@ -254,7 +237,13 @@ public class battleshipCLIENT extends JFrame implements ActionListener {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(
 								battleshipCLIENT.this,
-								"stuff goes here",
+								"In Battleship, you will take turns firing at\n" +
+								"one another attempting to sink each other's ships.\n" +
+								"However, your respective ships are only visible to you.\n" +
+								"Press new game to place your ships.\n" +
+								"Ships are placed through user input, X coordinates and Y coordinates.\n" +
+								"Your ships will be placed on the LEFT (blue) side of the board.\n" +
+								"You will take your shots at the opponent on the RIGHT (green) side of the board.\n",
 								"How to play", JOptionPane.PLAIN_MESSAGE );
 						
 						
@@ -363,10 +352,6 @@ public class battleshipCLIENT extends JFrame implements ActionListener {
 			}
 		}
 	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		
-	}
+	
 }
 

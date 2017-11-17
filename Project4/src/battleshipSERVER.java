@@ -15,13 +15,16 @@ import java.io.IOException;
 import javax.swing.*;
 import javax.swing.border.*;
 
-
+//
 public class battleshipSERVER extends JFrame implements ActionListener {
-	public JButton buttons[][];
+	JButton buttons[][];
 	JButton LnumLine[], RnumLine[];
 	Container grid;
 	JPanel field, leftLine, rightLine;
-	int x,y;
+	
+	/**
+	 * 
+	 */
 	public battleshipSERVER() {
 		
 		super ( "Battleship, The Game (Server)" );
@@ -40,7 +43,7 @@ public class battleshipSERVER extends JFrame implements ActionListener {
 		
 		for(int i = 0; i < 11; i++) {
 			for(int j = 0; j < 21; j++) {	
-				JButton display = new JButton("" + i + "," + j);
+				JButton display = new JButton("");
 				display.setBackground(Color.BLUE);
 				field.add(display);
 				
@@ -117,11 +120,8 @@ public class battleshipSERVER extends JFrame implements ActionListener {
 								JButton temp = (JButton) e.getSource();
 								for(int i = 1; i < 11; i++) {
 									for(int j = 11; j < 21; j++) {
-										if(temp.equals(buttons[i][j])){
-											x = i;
-											y = j;
-										}
-										
+										if(temp.equals(buttons[i][j]))
+											buttons[i][j].setBackground(Color.RED);
 									}
 								}
 							}
@@ -137,8 +137,8 @@ public class battleshipSERVER extends JFrame implements ActionListener {
 		JMenu Menu = new JMenu( "Menu" );
 		Menu.setMnemonic( 'M' );
 
-		JMenuItem connectItem = new JMenuItem( "Connect!" );
-		connectItem.setMnemonic( 'C' );
+		JMenuItem connectItem = new JMenuItem( "New Game" );
+		connectItem.setMnemonic( 'N' );
 		Menu.add( connectItem );
 		connectItem.addActionListener(
 				new ActionListener() {
@@ -146,10 +146,10 @@ public class battleshipSERVER extends JFrame implements ActionListener {
 					{
 						//CODE GOES HERE
 						
-						JOptionPane.showMessageDialog(
-								battleshipSERVER.this,
-								"Establishing Connection...",
-								"Connection", JOptionPane.PLAIN_MESSAGE );
+//						JOptionPane.showMessageDialog(
+//								battleshipSERVER.this,
+//								"Establishing Connection...",
+//								"Connection", JOptionPane.PLAIN_MESSAGE );
 						
 						String ship11 = JOptionPane.showInputDialog("Enter in X coordinate (1-10) for Aircraft Carrier's head : \nNOTE: ship is 5 units long");
 						String ship12 = JOptionPane.showInputDialog("Enter in Y coordinate (A-J) for Aircraft Carrier's head : \nNOTE: ship is 5 units long");
@@ -253,7 +253,13 @@ public class battleshipSERVER extends JFrame implements ActionListener {
 					public void actionPerformed(ActionEvent e) {
 						JOptionPane.showMessageDialog(
 								battleshipSERVER.this,
-								"stuff goes here",
+								"In Battleship, you will take turns firing at\n" +
+								"one another attempting to sink each other's ships.\n" +
+								"However, your respective ships are only visible to you.\n" +
+								"Press new game to place your ships.\n" +
+								"Ships are placed through user input, X coordinates and Y coordinates.\n" +
+								"Your ships will be placed on the LEFT (blue) side of the board.\n" +
+								"You will take your shots at the on the RIGHT (green) side of the board.\n",
 								"How to play", JOptionPane.PLAIN_MESSAGE );
 						
 						
@@ -366,17 +372,6 @@ public class battleshipSERVER extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		
-	}
-	public int setX(int i){
-		return i;
-	}
-	public int setY(int j){
-		return j;
-	}
-	
-	public void change_buttons()
-	{
-		buttons[0][0].setText("21");
 	}
 }
 
